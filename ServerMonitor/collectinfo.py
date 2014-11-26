@@ -1,5 +1,5 @@
 from remote_run import Batch
-from ServerMonitor.models import *
+from MonitorAPP.models import *
 
 def collect_info(host):
     batch = Batch(host)
