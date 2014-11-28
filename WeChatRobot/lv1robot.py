@@ -24,6 +24,8 @@ def unsubscribe_me(message):
 
 @robot.text
 def hello_world(message):
+    print
+    print "User Info:",client.get_user_info(message.source,'en')
     content =  message.content
     print message.source
     print message.target
@@ -56,11 +58,10 @@ def click_my(message):
     print message.key
     return  "This is a click %s" % message.key
 
-client = Client('wx1c61843daa556523','0798b663ac452fdc9ec8c76d99751a17')
+client = Client('wx1c61843daa556523', '0798b663ac452fdc9ec8c76d99751a17')
 token = client.grant_token()
 print token
-client.create_menu({
-                "button":[
+client.create_menu({"button": [
                     {
                         "type":"click",
                         "name":"今日歌曲",
@@ -82,6 +83,5 @@ client.create_menu({
                         ]
                     }
                 ]})
-print client.get_menu()
 
 robot.run(host='0.0.0.0',port=80)
